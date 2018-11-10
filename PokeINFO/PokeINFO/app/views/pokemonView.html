@@ -1,0 +1,34 @@
+﻿
+<div >
+    <div class="container" >
+        <input type="text"
+               ng-model-options="{ debounce: 800}"
+               placeholder="Enter pokemon name"
+               ng-model="searchPokemon"
+               />
+        <button ng-click="searchForPokemon()"
+                >
+            Search
+        </button>
+    </div>
+    
+
+    
+    
+        <div ng-repeat="pokemon in listOfPokemonObjects" >
+                <h4 class="name">{{pokemon.name | uppercase }}</h4>
+                <h4 class="index">{{pokemon.index}}</h4>
+
+                <!--<table ng-repeat="pokemonType in pokemonDetails.types">
+                <tr ng-repeat="typeName in pokemonType">
+                   <td>{{typeName.name}}</td>
+
+                </tr>
+                </table>-->
+
+                <img class="image" src="{{pokemon.image}}" /> 
+        </div>
+          
+    
+    
+</div>
