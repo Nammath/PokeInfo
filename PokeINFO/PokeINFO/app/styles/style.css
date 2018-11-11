@@ -3,9 +3,14 @@
 }
 
 h4 {
-    color: black;
+    color: blue;
     margin: 5px;
     font-size: 20px;
+    pointer-events: none;
+}
+img {
+    pointer-events: none;
+    
 }
 
 div {
@@ -13,3 +18,4 @@ div {
     border-width: 2px;
     border-color: red;
 }
+

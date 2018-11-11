@@ -1,6 +1,6 @@
 ﻿
-<div >
-    <div class="container" >
+<div>
+    <div class="container">
         <input type="text"
                ng-model-options="{ debounce: 800}"
                placeholder="Enter pokemon name"
@@ -12,21 +12,23 @@
         </button>
     </div>
     
+        <div ng-repeat="pokemon in listOfPokemonObjects">
+            <div ng-click="openDetailPage($event)" style="cursor: pointer;">
 
-    
-    
-        <div ng-repeat="pokemon in listOfPokemonObjects" >
+
                 <h4 class="name">{{pokemon.name | uppercase }}</h4>
-                <h4 class="index">{{pokemon.index}}</h4>
+                <h4 class="index" id="indeks">{{pokemon.index}}</h4>
 
-                <!--<table ng-repeat="pokemonType in pokemonDetails.types">
-                <tr ng-repeat="typeName in pokemonType">
-                   <td>{{typeName.name}}</td>
+                <ul ng-repeat="pokemonType in pokemon.types">
+                    <li>{{pokemonType.name}}</li>
 
-                </tr>
-                </table>-->
+                </ul>
 
-                <img class="image" src="{{pokemon.image}}" /> 
+                <img class="image" src="{{pokemon.image}}" />
+
+            </div>
+            
+                
         </div>
           
     
