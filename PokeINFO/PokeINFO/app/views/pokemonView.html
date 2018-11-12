@@ -1,36 +1,20 @@
-﻿
-<div>
+﻿<div>
     <div class="container">
         <input type="text"
                ng-model-options="{ debounce: 800}"
                placeholder="Enter pokemon name"
                ng-model="searchPokemon"
-               />
-        <button ng-click="searchForPokemon()"
-                >
-            Search
-        </button>
+        />
+        <button ng-click="searchForPokemon()">Search</button>
     </div>
-    
-        <div ng-repeat="pokemon in listOfPokemonObjects">
-            <div ng-click="openDetailPage($event)" style="cursor: pointer;">
-
-
-                <h4 class="name">{{pokemon.name | uppercase }}</h4>
-                <h4 class="index" id="indeks">{{pokemon.index}}</h4>
-
-                <ul ng-repeat="pokemonType in pokemon.types">
-                    <li>{{pokemonType.name}}</li>
-
-                </ul>
-
-                <img class="image" src="{{pokemon.image}}" />
-
-            </div>
-            
-                
+    <div ng-repeat="pokemon in listOfPokemonObjects">
+        <div ng-click="openDetailPage($event)" style="cursor: pointer;">
+            <h4 class="name">{{pokemon.name | uppercase }}</h4>
+            <h4 class="index" id="indeks">{{pokemon.index}}</h4>
+            <ul ng-repeat="pokemonType in pokemon.types">
+                <li>{{pokemonType.name}}</li>
+            </ul>
+            <img class="image" src="{{pokemon.image}}"/>
         </div>
-          
-    
-    
+    </div>
 </div>
