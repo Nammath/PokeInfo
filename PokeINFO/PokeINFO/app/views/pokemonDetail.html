@@ -1,10 +1,20 @@
-﻿<div >
-    <div>
-        <h4 class="name">{{pokemonInfo | uppercase }}</h4>
-        <!---<h4 class="index" id="indeks">{{pokemon.index}}</h4>
-        <ul ng-repeat="pokemonType in pokemon.types">
-            <li>{{pokemonType.name}}</li>
-        </ul>
-        <img class="image" src="{{pokemon.image}}" />-->
+﻿<div>
+    <div class="container">
+        <h4 class="name">Name: {{pokemonDetails.name    }}</h4>
+        <h4 class="name">Weight: {{pokemonDetails.name    }}</h4>
+        <h4 class="name">Height: {{pokemonDetails.name    }}</h4>
+
+        <h4 class="name">Types:</h4>
+        <h4 class="name">Abilities:</h4>
+        <h4 class="name">Moves:</h4>
+        <div ng-repeat="move in pokemonDetails.moves">
+            <div>
+                <ul>
+                    <li>Name: {{move.name}}</li>
+                    <li>Damage class: {{move.damageClass}}</li>
+                    <li>Description{{move.description}}</li>
+                </ul>
+            </div>
+        </div>
     </div>
 </div>
