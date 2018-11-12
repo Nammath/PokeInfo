@@ -1,6 +1,6 @@
-﻿var app = angular.module('pokeApp', ['ngRoute'])
+﻿var app = angular.module('pokeApp')
 
-app.component('pokeApp', {
+app.component('pokeSearch', {
     templateUrl: 'app/views/pokemonView.html',
 
     controller: function ($scope, $http) {
@@ -37,7 +37,7 @@ app.component('pokeApp', {
 
         $scope.updateCurrentHintList = function (searchString) {
             var text = searchString.toString().trim();
-            if (text.length <2){
+            if (text.length < 2) {
                 $scope.hideHints = true;
                 return;
             }
@@ -81,7 +81,7 @@ app.component('pokeApp', {
                                 return value.type.name
                             })
                             .forEach(function (value) {
-                                $scope.listOfTypesTemp.push({name: value});
+                                $scope.listOfTypesTemp.push({ name: value });
                             });
 
                         //dodajemy pokemona do listy i przerywamy działanie funkcji (już znaleźliśmy pokemona)
@@ -115,7 +115,7 @@ app.component('pokeApp', {
                                                 return value.type.name
                                             })
                                             .forEach(function (value) {
-                                                $scope.listOfTypesTemp.push({name: value});
+                                                $scope.listOfTypesTemp.push({ name: value });
                                             });
                                         $scope.listOfPokemonObjects.push(
                                             {
@@ -130,46 +130,5 @@ app.component('pokeApp', {
                     });
             }
         };
-        
-
     }
-
-});
-
-app.component('pokeDetail', {
-    templateUrl: 'app/views/pokemonDetail.html',
-
-    controller: function ($scope, $http) {
-        $http.get("https://pokeapi.co/api/v2/pokemon/1/")
-            .then(function (response) {
-                
-            });
-        
-        
-
-    }
-})
-
-
-
-app.config(['$routeProvider', '$locationProvider', function ($routeProvider, $locationProvider) {
-    $routeProvider
-        .when('/', {
-            templateUrl: '/app/views/start.html'
-        })
-        .when('/appStart', {
-            template: '<poke-app></poke-app>'
-
-        })
-    
-        .when('/pokemonDetail/:pokeId', {
-            template: '<poke-detail></poke-detail>'
-        })
-       
-    $locationProvider.html5Mode({
-        enabled: true,
-        requireBase: false
-    });
-    
-}])
-
+}); 
