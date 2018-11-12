@@ -3,21 +3,30 @@
         <input type="text"
                ng-model-options="{ debounce: 800}"
                placeholder="Enter pokemon name"
-               ng-model="searchPokemon"
+               ng-model="searchInput"
+               ng-change="updateCurrentHintList(searchInput)"
         />
         <button ng-click="searchForPokemon()">Search</button>
+        <!-- TEST -->
+        <div class="pokemon-container-dropdown" ng-hide="!searchInput || hideHints">
+            <div class="searchHintList"
+                 ng-repeat="hint in currentHintList"
+                 ng-click="selectHint(hint)">
+                {{ hint }}
+            </div>
+        </div>
+        <!---->
     </div>
     <a href="/pokemonDetail">
         <div ng-repeat="pokemon in listOfPokemonObjects">
-            <div >
+            <div>
                 <h4 class="name">{{pokemon.name | uppercase }}</h4>
                 <h4 class="index" id="indeks">{{pokemon.index}}</h4>
                 <ul ng-repeat="pokemonType in pokemon.types">
                     <li>{{pokemonType.name}}</li>
                 </ul>
-                <img class="image" src="{{pokemon.image}}" />
+                <img class="image" src="{{pokemon.image}}"/>
             </div>
         </div>
     </a>
-    
 </div>

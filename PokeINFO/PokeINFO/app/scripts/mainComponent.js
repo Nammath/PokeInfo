@@ -4,18 +4,55 @@ app.component('pokeApp', {
     templateUrl: 'app/views/pokemonView.html',
 
     controller: function ($scope, $http) {
+        $scope.fullHintList = [];
+        $scope.currentHintList = [];
+        $scope.hideHints = true;
 
-        var POKEMONS_IN_1_GENERATION = 151
+        var POKEMONS_IN_1_GENERATION = 151;
 
         $http.get("https://pokeapi.co/api/v2/pokemon/")
             .then(function (response) {
                 $scope.listOfPokemons = response.data;
+                $scope.listOfPokemons.results
+                    .slice(0, POKEMONS_IN_1_GENERATION + 1)
+                    .map(function (value1) {
+                        return value1.name.toString();
+                    })
+                    .forEach(function (value) {
+                        $scope.fullHintList.push(value);
+                    });
             }); //lista pokemonów
         $http.get("https://pokeapi.co/api/v2/type/")
             .then(function (response) {
                 $scope.listOfTypes = response.data;
+                $scope.listOfTypes.results
+                    .map(function (value1) {
+                        return value1.name.toString();
+                    })
+                    .forEach(function (value) {
+                        $scope.fullHintList.push(value);
+                    })
             }); //lista typów pokemonów (np. fire, water itd.)
         $scope.listOfPokemonObjects = []; //tutaj będą umieszczane obiekty pokemonów do wyświetlenia
+
+        $scope.updateCurrentHintList = function (searchString) {
+            var text = searchString.toString().trim();
+            if (text.length <2){
+                $scope.hideHints = true;
+                return;
+            }
+            $scope.hideHints = false;
+            $scope.currentHintList = $scope.fullHintList
+                .filter(function (hint) {
+                    return (hint.indexOf(text) === 0);
+                });
+            console.log($scope.currentHintList);
+        };
+        $scope.selectHint = function (hint) {
+            $scope.searchInput = hint;
+            $scope.hideHints = true;
+            $scope.searchForPokemon();
+        };
 
         $scope.searchForPokemon = function () {
             $scope.listOfPokemonObjects = [];
@@ -29,7 +66,7 @@ app.component('pokeApp', {
                 .map(function (value) {
                     return value.name
                 });
-            var searchPokemon = $scope.searchPokemon.toLowerCase();
+            var searchPokemon = $scope.searchInput.toLowerCase();
 
             if (listOfPokemonsNames.includes(searchPokemon)) { //jeżeli znaleźliśmy pokemona
                 $http.get("https://pokeapi.co/api/v2/pokemon/" + searchPokemon + "/")
@@ -96,6 +133,7 @@ app.component('pokeApp', {
         
 
     }
+
 });
 
 app.component('pokeDetail', {
