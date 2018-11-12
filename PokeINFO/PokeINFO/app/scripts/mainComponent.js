@@ -162,7 +162,7 @@ app.config(['$routeProvider', '$locationProvider', function ($routeProvider, $lo
 
         })
     
-        .when('/pokemonDetail', {
+        .when('/pokemonDetail/:pokeId', {
             template: '<poke-detail></poke-detail>'
         })
        

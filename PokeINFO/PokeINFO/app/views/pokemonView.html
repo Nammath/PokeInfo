@@ -17,16 +17,18 @@
         </div>
         <!---->
     </div>
-    <a href="/pokemonDetail">
+    
         <div ng-repeat="pokemon in listOfPokemonObjects">
-            <div>
-                <h4 class="name">{{pokemon.name | uppercase }}</h4>
-                <h4 class="index" id="indeks">{{pokemon.index}}</h4>
-                <ul ng-repeat="pokemonType in pokemon.types">
-                    <li>{{pokemonType.name}}</li>
-                </ul>
-                <img class="image" src="{{pokemon.image}}"/>
-            </div>
+            <a href="/pokemonDetail/{{pokemon.index}}">
+                <div>
+                    <h4 class="name">{{pokemon.name | uppercase }}</h4>
+                    <h4 class="index" id="indeks">{{pokemon.index}}</h4>
+                    <ul ng-repeat="pokemonType in pokemon.types">
+                        <li class="{{pokemonType.name}}">{{pokemonType.name}}</li>
+                    </ul>
+                    <img class="image" src="{{pokemon.image}}" />
+                </div>
+            </a>
         </div>
-    </a>
+    
 </div>
