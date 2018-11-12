@@ -16,11 +16,11 @@ app.component('pokeDetail', {
                 $scope.height = data.height.toString();
 
                 console.log($scope.pokemonName)
-                data.types
-                    .foreach(function (type) {
-                        types.push(type.name.toString())
-                    });
-                data.abilities
+                //data.types
+                //    .foreach(function (type) {
+                //        $scope.types.push(type.name.toString())
+                //    });
+                response.data.abilities
                     .foreach(function (ability) {
                         $http.get(ability.url)
                             .then(function (response) {
