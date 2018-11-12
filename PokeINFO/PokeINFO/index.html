@@ -5,12 +5,14 @@
         <title>PokeINFO</title>
         <link href="app/styles/style.css" rel="stylesheet" />
         <script src="Scripts/angular.js"></script>
+        <script src="Scripts/angular-route.js"></script>
         <script src="app/scripts/mainComponent.js"></script>
         <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.7.5/angular-sanitize.js"></script>
 
     </head>
     <body>
-
-        <poke-app></poke-app>
+        
+        <div ng-view></div>
+        
     </body>
 </html>

@@ -1,4 +1,4 @@
-﻿var app = angular.module('pokeApp', [])
+﻿var app = angular.module('pokeApp', ['ngRoute'])
 
 app.component('pokeApp', {
     templateUrl: 'app/views/pokemonView.html',
@@ -29,7 +29,7 @@ app.component('pokeApp', {
                 .map(function (value) {
                     return value.name
                 });
-            var searchPokemon = $scope.searchPokemon.toLowerCase();
+            var searchPokemon = $scope.searchPokemon;
 
             if (listOfPokemonsNames.includes(searchPokemon)) { //jeżeli znaleźliśmy pokemona
                 $http.get("https://pokeapi.co/api/v2/pokemon/" + searchPokemon + "/")
@@ -93,10 +93,45 @@ app.component('pokeApp', {
                     });
             }
         };
-        $scope.openDetailPage = function ($event) {
-            var x = $event.target;
-            console.log(x);
-        }
+        
+
     }
 });
+
+app.component('pokeDetail', {
+    templateUrl: 'app/views/pokemonDetail.html',
+
+    controller: function ($scope, $http) {
+        $http.get("https://pokeapi.co/api/v2/pokemon/1/")
+            .then(function (response) {
+                
+            });
+        
+        
+
+    }
+})
+
+
+
+app.config(['$routeProvider', '$locationProvider', function ($routeProvider, $locationProvider) {
+    $routeProvider
+        .when('/', {
+            templateUrl: '/app/views/start.html'
+        })
+        .when('/appStart', {
+            template: '<poke-app></poke-app>'
+
+        })
+    
+        .when('/pokemonDetail', {
+            template: '<poke-detail></poke-detail>'
+        })
+       
+    $locationProvider.html5Mode({
+        enabled: true,
+        requireBase: false
+    });
+    
+}])
 
