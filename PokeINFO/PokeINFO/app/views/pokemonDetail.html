@@ -1,20 +1,35 @@
 ﻿<div>
     <div class="container">
-        <h4 class="name">Name: {{pokemonName    }}</h4>
-        <h4 class="name">Weight: {{weight    }}</h4>
-        <h4 class="name">Height: {{height    }}</h4>
+        <h4 class="name">{{pokemonName    }}</h4>
+        <img class="image" src="{{imageUrl}}" />
+        <h3 class="name">Weight: {{weight    }}</h3>
+        <h3 class="name">Height: {{height    }}</h3>
 
-        <h4 class="name">Types:</h4>
-        <h4 class="name">Abilities:</h4>
-        <h4 class="name">Moves:</h4>
-        <div ng-repeat="move in moves">
-            <div>
-                <ul>
-                    <li>Name: {{move.name}}</li>
-                    <li>Damage class: {{move.damageClass}}</li>
-                    <li>Description{{move.description}}</li>
+        <h3 class="name">Types:</h3>
+        <ul ng-repeat="type in types">
+            <li>{{type}}</li>
+        </ul>
+        <h3 class="name">Abilities:</h3>
+        <ul ng-repeat="ability in abilities">
+            <li>{{ability.name}}</li>
+            <ul>
+                <li>Effects: </li>
+                <ul ng-repeat="effect in ability.effects">
+                    <li> {{effect}}</li>
                 </ul>
-            </div>
-        </div>
+            </ul>
+        </ul>
+        <h3 class="name">Moves:</h3>
+        <ul ng-repeat="move in moves">
+            <li>{{move.name}}</li>
+            <ul>
+                <li>Accuracy: {{move.accuracy}}</li>
+                <li>Damage class: {{move.damageClass}}</li>
+                <li>Effects:</li>
+                <ul ng-repeat="effect in move.effects">
+                    <li> {{effect}}</li>
+                </ul>
+            </ul>
+        </ul>
     </div>
 </div>

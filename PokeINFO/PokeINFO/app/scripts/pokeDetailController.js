@@ -4,7 +4,9 @@ app.component('pokeDetail', {
     templateUrl: 'app/views/pokemonDetail.html',
 
     controller: function ($scope, $http) {
-        $http.get("https://pokeapi.co/api/v2/pokemon/1/")
+        var pokemonId = "1";
+
+        $http.get("https://pokeapi.co/api/v2/pokemon/" + pokemonId + "/")
             .then(function (response) {
                 var data = response.data;
                 $scope.pokemonName = data.name.toString();
@@ -15,31 +17,41 @@ app.component('pokeDetail', {
                 $scope.weight = data.weight.toString();
                 $scope.height = data.height.toString();
 
-                console.log($scope.pokemonName)
-                //data.types
-                //    .foreach(function (type) {
-                //        $scope.types.push(type.name.toString())
-                //    });
-                response.data.abilities
-                    .foreach(function (ability) {
-                        $http.get(ability.url)
+                data.types
+                    .forEach(function (type) {
+                        $scope.types.push(type.type.name)
+                    });
+
+                console.log(data.abilities);
+                data.abilities
+                    .forEach(function (ability) {
+                        $http.get(ability.ability.url)
                             .then(function (response) {
                                 var abilityDetails = response.data;
-                                $scope.pokemonDetails.abilities.push({
-                                    name: ability.name.toString(),
-                                    desciption: abilityDetails.effect_entries.effect.toString()
+                                console.log(abilityDetails);
+                                $scope.abilities.push({
+                                    name: ability.ability.name,
+                                    effects: abilityDetails.effect_entries
+                                        .map(function (effect) {
+                                            return effect.short_effect;
+                                        }),
                                 });
                             })
                     });
+
                 data.moves
-                    .foreach(function (move) {
-                        $http.get(move.url)
+                    .forEach(function (move) {
+                        $http.get(move.move.url)
                             .then(function (response) {
-                                var data = response.data
-                                $scope.pokemonDetails.abilities.push({
-                                    name: ability.name.toString(),
-                                    desciption: data.effect_entries.effect.toString(),
-                                    damageClass: data.damage_class.name.toString()
+                                var moveDetails = response.data
+                                $scope.moves.push({
+                                    name: move.move.name,
+                                    accuracy: moveDetails.accuracy,
+                                    effects: moveDetails.effect_entries
+                                        .map(function (effect) {
+                                            return effect.short_effect;
+                                        }),
+                                    damageClass: moveDetails.damage_class.name
                                 });
                             })
                     })
