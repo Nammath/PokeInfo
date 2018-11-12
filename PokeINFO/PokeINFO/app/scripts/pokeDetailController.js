@@ -1,6 +1,6 @@
 ﻿var app = angular.module('pokeApp')
 
-app.component('poke-detail', {
+app.component('pokeDetail', {
     templateUrl: 'app/views/pokemonDetail.html',
 
     controller: function ($scope, $http) {

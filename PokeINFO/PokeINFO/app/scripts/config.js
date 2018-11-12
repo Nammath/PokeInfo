@@ -9,7 +9,7 @@
                 template: '<poke-search></poke-search>'
             })
 
-            .when('/pokemonDetail/:pokeId', {
+            .when('/pokemonDetail', {
                 template: '<poke-detail></poke-detail>'
             })
 
