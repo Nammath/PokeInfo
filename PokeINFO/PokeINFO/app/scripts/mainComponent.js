@@ -29,7 +29,7 @@ app.component('pokeApp', {
                 .map(function (value) {
                     return value.name
                 });
-            var searchPokemon = $scope.searchPokemon;
+            var searchPokemon = $scope.searchPokemon.toLowerCase();
 
             if (listOfPokemonsNames.includes(searchPokemon)) { //jeżeli znaleźliśmy pokemona
                 $http.get("https://pokeapi.co/api/v2/pokemon/" + searchPokemon + "/")
