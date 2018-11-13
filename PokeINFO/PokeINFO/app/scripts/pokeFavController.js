@@ -1,7 +1,8 @@
 ﻿var app = angular.module('pokeApp')
 
-app.controller('pokeFavController',
-    function ($scope, $http) {
+app.controller('pokeFav', {
+    templateUrl: 'app/views/pokemonFavView.html',
+    controller: function ($scope, $http) {
         var localFavPokemonsURL = "http://localhost:3000/pokemons/"
 
         $http.get(localFavPokemonsURL)
@@ -10,7 +11,9 @@ app.controller('pokeFavController',
             });
 
         $scope.removeFromFavs = function (index) {
-                $http.delete(localFavPokemonsURL + localFavPokemonsURL);
-            };
+            $http.delete(localFavPokemonsURL + localFavPokemonsURL);
+        };
     }
-)
+}
+
+);
