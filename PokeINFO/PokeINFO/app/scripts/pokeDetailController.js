@@ -1,11 +1,11 @@
 ﻿var app = angular.module('pokeApp')
 
-app.component('pokeDetail', {
-    templateUrl: 'app/views/pokemonDetail.html',
-
-    controller: function ($scope, $http) {
-        var pokemonId = "1";
-
+app.controller('pokemonDetailController', function ($scope, $http, $routeParams) {
+        
+        $scope.pokeId = $routeParams.pokeId;
+        
+        var pokemonId = $scope.pokeId;
+        
         $http.get("https://pokeapi.co/api/v2/pokemon/" + pokemonId + "/")
             .then(function (response) {
                 var data = response.data;
@@ -55,7 +55,8 @@ app.component('pokeDetail', {
                                 });
                             })
                     })
-                console.log($scope.types)
+                
             })
-    }
-})
+    })
+    
+

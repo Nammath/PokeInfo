@@ -1,4 +1,4 @@
-﻿<div>
+﻿<div ng-controller="pokemonDetailController">
     <div class="container">
         <h4 class="name">{{pokemonName    }}</h4>
         <img class="image" src="{{imageUrl}}" />
@@ -7,7 +7,7 @@
 
         <h3 class="name">Types:</h3>
         <ul ng-repeat="type in types">
-            <li>{{type}}</li>
+            <li class="{{type}}">{{type}}</li>
         </ul>
         <h3 class="name">Abilities:</h3>
         <ul ng-repeat="ability in abilities">

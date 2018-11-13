@@ -19,7 +19,7 @@
     </div>
     
         <div ng-repeat="pokemon in listOfPokemonObjects">
-            <a href="/pokemonDetail">
+            <a ng-href="/pokemonDetail/{{pokemon.index}}">
                 <div>
                     <h4 class="name">{{pokemon.name | uppercase }}</h4>
                     <h4 class="index" id="indeks">{{pokemon.index}}</h4>

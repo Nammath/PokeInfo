@@ -1,5 +1,6 @@
 ﻿var app = angular.module('pokeApp')
 
+
 app.component('pokeSearch', {
     templateUrl: 'app/views/pokemonView.html',
 
