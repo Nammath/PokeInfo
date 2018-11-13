@@ -9,13 +9,11 @@ app.component('pokeFav', {
             $http.get(localFavPokemonsURL)
                 .then(function (response) {
                     $scope.listOfPokemonObjects = response.data;
-                    console.log($scope.listOfPokemonObjects)
                 });
         }
 
         update();
         $scope.removeFromFavs = function (index) {
-            console.log(index)
             $http.delete(localFavPokemonsURL + index)
                 .then(function () {
                     update()

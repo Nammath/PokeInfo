@@ -51,7 +51,6 @@ app.component('pokeSearch', {
                 .filter(function (hint) {
                     return (hint.indexOf(text) === 0);
                 });
-            console.log($scope.currentHintList);
         };
         $scope.selectHint = function (hint) {
             $scope.searchInput = hint;

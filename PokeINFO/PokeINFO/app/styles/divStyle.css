@@ -8,9 +8,9 @@
     background-color: #fbfcf7;
 }
 
-div.pokeinfo:hover{
-    background-color: #e7efde;
-}
+    div.pokeinfo:hover {
+        background-color: #e7efde;
+    }
 
 div.pokeinfofav {
     border-style: solid;
@@ -19,6 +19,7 @@ div.pokeinfofav {
     border-radius: 15px;
     background-color: #fbfcf7;
 }
-div.pokeinfofav:hover {
-    background-color: #e7efde;
-}
+
+    div.pokeinfofav:hover {
+        background-color: #e7efde;
+    }
