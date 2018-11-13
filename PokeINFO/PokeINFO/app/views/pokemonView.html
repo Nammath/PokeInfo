@@ -11,13 +11,13 @@
 </table>
 <div class="pokemonwrapper">
     <div class="container">
-        
+
         <input type="text"
                ng-model-options="{ debounce: 800}"
                placeholder="Enter pokemon name"
                ng-model="searchInput"
                ng-change="updateCurrentHintList(searchInput)"
-               class="pokeinput"/>
+               class="pokeinput" />
         <button ng-click="searchForPokemon()" class="searchbutton">Search</button>
         <!-- TEST -->
         <div class="pokemon-container-dropdown" ng-hide="!searchInput || hideHints">
@@ -31,9 +31,9 @@
     </div>
     <div>
         <div ng-repeat="pokemon in listOfPokemonObjects" class="pokeinfo">
-            <button ng-click="addToFav(pokemon.index)">Add to favourites</button>
-            <a ng-href="/pokemonDetail/{{pokemon.index}}">
-                <div> 
+            <button ng-click="addToFav(pokemon)">Add to favourites</button>
+            <a ng-href="/pokemonDetail/{{pokemon.id}}">
+                <div>
                     <h4 class="name">{{pokemon.name | uppercase }}</h4>
                     <img class="image" src="{{pokemon.image}}" />
                     <ul ng-repeat="pokemonType in pokemon.types">

@@ -2,14 +2,15 @@
 
 app.controller('pokeFavController',
     function ($scope, $http) {
-        $scope.name = "bulbasaur";
-        $scope.types = [];
+        var localFavPokemonsURL = "http://localhost:3000/pokemons/"
 
-        $scope.listOfPokemonObjects = []
+        $http.get(localFavPokemonsURL)
+            .then(function (response) {
+                console.log(response);
+            });
 
         $scope.removeFromFavs = function (index) {
-        };
-    },
-    bindings{
+                $http.delete(localFavPokemonsURL + localFavPokemonsURL);
+            };
     }
 )

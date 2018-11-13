@@ -4,6 +4,7 @@ app.component('pokeSearch', {
     templateUrl: 'app/views/pokemonView.html',
 
     controller: function ($scope, $http) {
+        var localFavPokemons = "http://localhost:3000/pokemons/"
         $scope.fullHintList = [];
         $scope.currentHintList = [];
         $scope.hideHints = true;
@@ -35,7 +36,8 @@ app.component('pokeSearch', {
             }); //lista typów pokemonów (np. fire, water itd.)
         $scope.listOfPokemonObjects = []; //tutaj będą umieszczane obiekty pokemonów do wyświetlenia
 
-        $scope.addToFav = function (index) {
+        $scope.addToFav = function (pokemon) {
+            $http.post(localFavPokemons, pokemon)
         }
 
         $scope.updateCurrentHintList = function (searchString) {
@@ -91,7 +93,7 @@ app.component('pokeSearch', {
                         $scope.listOfPokemonObjects.push(
                             {
                                 name: $scope.pokemonDetails.name,
-                                index: $scope.pokemonDetails.game_indices[1].game_index,
+                                id: $scope.pokemonDetails.game_indices[1].game_index,
                                 image: $scope.pokemonDetails.sprites.front_default,
                                 types: $scope.listOfTypesTemp
                             });
@@ -123,7 +125,7 @@ app.component('pokeSearch', {
                                         $scope.listOfPokemonObjects.push(
                                             {
                                                 name: $scope.pokemonOfType.name,
-                                                index: $scope.pokemonOfType.game_indices[1].game_index,
+                                                id: $scope.pokemonOfType.game_indices[1].game_index,
                                                 image: $scope.pokemonOfType.sprites.front_default,
                                                 types: $scope.listOfTypesTemp
                                             }
