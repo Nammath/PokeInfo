@@ -1,10 +1,50 @@
-﻿<div >
+﻿<div ng-controller="pokemonDetailController"  class="pokedeatildiv">
     <div>
-        <h4 class="name">{{pokemonInfo | uppercase }}</h4>
-        <!---<h4 class="index" id="indeks">{{pokemon.index}}</h4>
-        <ul ng-repeat="pokemonType in pokemon.types">
-            <li>{{pokemonType.name}}</li>
+        <div>
+            <h1 class="name" style="float:left; margin:10px">{{pokemonName | uppercase }}</h1>
+            <img src="{{imageUrl}}" style="float:right; margin:10px" />
+        </div>
+        <br /><br /><br />
+        
+        <h4 class="name">Weight: {{weight    }}</h4>
+        <h4 class="name">Height: {{height    }}</h4>
+
+        <h4 class="name">Types:</h4>
+        <ul ng-repeat="type in types">
+            <li class="{{type}} pokemontypelist">{{type}}</li>
         </ul>
-        <img class="image" src="{{pokemon.image}}" />-->
+
+        <h4>
+            Abilities: <input type="checkbox" ng-model="checked" ng-init="checked=false" />
+        </h4>
+        <span ng-if="checked">
+            <ul ng-repeat="ability in abilities">
+                <li>{{ability.name}}</li>
+                <ul>
+                    <li>Effects: </li>
+                    <ul ng-repeat="effect in ability.effects">
+                        <li> {{effect}}</li>
+                    </ul>
+                </ul>
+            </ul>
+        </span>
+        <br /><br />
+
+        <h4>
+            Moves : <input type="checkbox" ng-model="checkedMoves" ng-init="checkedMoves=false" />
+        </h4>
+        <span ng-if="checkedMoves">
+            <ul ng-repeat="move in moves">
+                <li>{{move.name}}</li>
+                <ul>
+                    <li>Accuracy: {{move.accuracy}}</li>
+                    <li>Damage class: {{move.damageClass}}</li>
+                    <li>Effects:</li>
+                    <ul ng-repeat="effect in move.effects">
+                        <li> {{effect}}</li>
+                    </ul>
+                </ul>
+            </ul>
+        </span>
     </div>
 </div>

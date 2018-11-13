@@ -35,6 +35,9 @@ app.component('pokeSearch', {
             }); //lista typów pokemonów (np. fire, water itd.)
         $scope.listOfPokemonObjects = []; //tutaj będą umieszczane obiekty pokemonów do wyświetlenia
 
+        $scope.addToFav = function (index) {
+        }
+
         $scope.updateCurrentHintList = function (searchString) {
             var text = searchString.toString().trim();
             if (text.length < 2) {

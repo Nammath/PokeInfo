@@ -1,95 +1,142 @@
 ﻿body {
-    background-color: lightblue;
+    background-color: #c0c3c6;
 }
 
-h4 {
-    color: blue;
-    margin: 5px;
+h1 {
+    color: black;
     font-size: 20px;
-    pointer-events: none;
+    text-decoration: none;
 }
+
 img {
     pointer-events: none;
     
 }
-
-div {
-    border-style: solid;
-    border-width: 2px;
-    border-color: red;
+img.image{
+    margin-left:90%;
 }
 
-li {
+div.container {
+    margin-left:40%;
+}
+div.pokemonwrapper {
+    height: 100%;
+    width: 100%;
+    margin: 10% 0% 0% 0%;
+}
+h4.name{
+    margin:10px;
+}
+li.pokemontypelist {
+    text-decoration: none;
+    pointer-events: none;
+    text-align: center;
+    text-shadow: 1px 1px 1px #000000;
+    color: white;
+    font-weight: 700;
+    display: block;
+    width: 80px;
+    height: 30px;
+    border-radius: 10px;
+    /*float: left;*/
+}
 
+li:hover {
 }
 
 li.normal {
     background-color: #cca5ac;
 }
+
 li.fighting {
     background-color: #776b59;
 }
+
 li.flying {
     background-color: #c9c0e8;
 }
+
 li.poison {
     background-color: #8a42b7;
 }
+
 li.ground {
     background-color: #adaa7c;
 }
+
 li.rock {
     background-color: #919084;
 }
+
 li.bug {
     background-color: #b9c49f;
 }
-li.ghost{
-    background-color:#b103ba;
+
+li.ghost {
+    background-color: #b103ba;
 }
-li.steel{
-    background-color:#d5cfd6;
+
+li.steel {
+    background-color: #d5cfd6;
 }
 
 li.fire {
-    background-color:#e50000;
+    background-color: #e50000;
 }
+
 li.water {
-    background-color:#0061ff;
+    background-color: #0061ff;
 }
+
 li.grass {
-    background-color:#3fa51d;
+    background-color: #3fa51d;
 }
+
 li.electric {
-    background-color:#f8fc05;
+    background-color: #f8fc05;
 }
+
 li.psychic {
-    background-color:#f28afc;
+    background-color: #f28afc;
 }
+
 li.ice {
-    background-color:#cccee2;
+    background-color: #cccee2;
 }
+
 li.dragon {
-    background-color:#c12c72;
+    background-color: #c12c72;
 }
+
 li.dark {
-    background-color:#595557;
+    background-color: #595557;
 }
+
 li.fairy {
-    background-color:#ffc4e1;
+    background-color: #ffc4e1;
 }
 
+input.pokeinput {
+    background-color: #c0c3c6;
+    border-bottom-color: red;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+}
 
+button.searchbutton {
+    background-color: #d80202;
+    border-radius: 10px;
+    border-color: #bc0909;
+    border-width:2px;
+    padding: 5px 30px;
+}
 
+button.searchbutton:hover{
+    background-color:#b20000;
+}
 
-
-
-
-
-
-
-
-
-
-
-
+button.searchbutton:active{
+    position:relative;
+    top: 1px;
+}

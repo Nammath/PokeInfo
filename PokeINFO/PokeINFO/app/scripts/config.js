@@ -1,5 +1,4 @@
-﻿var app = angular
-    .module('pokeApp', ['ngRoute'])
+﻿var app = angular.module('pokeApp', ['ngRoute'])
     .config(['$routeProvider', '$locationProvider', function ($routeProvider, $locationProvider) {
         $routeProvider
             .when('/', {
@@ -10,11 +9,14 @@
             })
 
             .when('/pokemonDetail/:pokeId', {
-                template: '<poke-detail></poke-detail>'
+                templateUrl: '/app/views/pokemonDetail.html',
+                controller: 'pokemonDetailController'
+
             })
 
         $locationProvider.html5Mode({
             enabled: true,
             requireBase: false
-        });
-    }])
+        })
+    }]);
+
