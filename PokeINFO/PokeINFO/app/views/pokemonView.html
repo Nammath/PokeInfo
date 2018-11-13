@@ -1,4 +1,8 @@
-﻿<table style="height:100%;width: 100%;margin: 10% 0%;padding: 0;border: 0;">
+﻿<a ng-href="/pokemonFavorite" class="acontainer">
+    Lista
+</a>
+
+<table style="height:100%;width: 100%;margin: 10% 0%;padding: 0;border: 0;">
     <tr>
         <td style="vertical-align: middle; margin-top:400px; text-align: center;">
             <img src="https://fontmeme.com/permalink/181112/5d66150b15a027e791e68a5a38518e16.png?fbclid=IwAR0DXyKFobw3JYbYBmu6cYAkqLEtkFV4litWGk7DnW6ZbhJGgEQGKvWUG1Y" alt="" />
@@ -7,14 +11,17 @@
 </table>
 <div class="pokemonwrapper">
     <div class="container">
-        
-        <input type="text"
-               ng-model-options="{ debounce: 800}"
-               placeholder="Enter pokemon name"
-               ng-model="searchInput"
-               ng-change="updateCurrentHintList(searchInput)"
-               class="pokeinput"/>
-        <button ng-click="searchForPokemon()" class="searchbutton">Search</button>
+        <form name="pokeForm">
+            <input type="text"
+                   ng-model-options="{ debounce: 800}"
+                   placeholder="Enter pokemon name"
+                   ng-model="searchInput" required
+                   ng-change="updateCurrentHintList(searchInput)"
+                   class="pokeinput"
+                   name="pokemonInputSearch" />
+            <button ng-click="searchForPokemon()" class="searchbutton">Search</button>
+            <span ng-show="pokeForm.pokemonInputSearch.$touched && pokeForm.pokemonInputSearch.$invalid">Please ener pokemon name or type</span>
+        </form>
         <!-- TEST -->
         <div class="pokemon-container-dropdown" ng-hide="!searchInput || hideHints">
             <div class="searchHintList"
@@ -27,9 +34,9 @@
     </div>
     <div>
         <div ng-repeat="pokemon in listOfPokemonObjects" class="pokeinfo">
-            <button ng-click="addToFav(pokemon.index)">Add to favourites</button>
-            <a ng-href="/pokemonDetail/{{pokemon.index}}">
-                <div> 
+            <button ng-click="addToFav(pokemon)">Add to favourites</button>
+            <a ng-href="/pokemonDetail/{{pokemon.id}}">
+                <div>
                     <h4 class="name">{{pokemon.name | uppercase }}</h4>
                     <img class="image" src="{{pokemon.image}}" />
                     <ul ng-repeat="pokemonType in pokemon.types">

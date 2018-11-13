@@ -1,4 +1,14 @@
 {
   "pokemons": [
+    {
+      "name": "wartortle",
+      "id": 8,
+      "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/8.png",
+      "types": [
+        {
+          "name": "water"
+        }
+      ]
+    }
   ]
 }

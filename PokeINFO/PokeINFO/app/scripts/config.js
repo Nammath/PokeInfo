@@ -11,7 +11,9 @@
             .when('/pokemonDetail/:pokeId', {
                 templateUrl: '/app/views/pokemonDetail.html',
                 controller: 'pokemonDetailController'
-
+            })
+            .when('/pokemonFavorite', {
+                template: '<poke-fav></poke-fav>'
             })
 
         $locationProvider.html5Mode({
@@ -19,4 +21,3 @@
             requireBase: false
         })
     }]);
-

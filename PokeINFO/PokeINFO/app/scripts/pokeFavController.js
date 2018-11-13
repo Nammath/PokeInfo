@@ -1,15 +1,25 @@
 ﻿var app = angular.module('pokeApp')
 
-app.controller('pokeFavController',
-    function ($scope, $http) {
-        $scope.name = "bulbasaur";
-        $scope.types = [];
+app.component('pokeFav', {
+    templateUrl: 'app/views/pokemonFavView.html',
+    controller: function ($scope, $http) {
+        var localFavPokemonsURL = "http://localhost:3000/pokemons/"
 
-        $scope.listOfPokemonObjects = []
+        var update = function () {
+            $http.get(localFavPokemonsURL)
+                .then(function (response) {
+                    $scope.listOfPokemonObjects = response.data;
+                });
+        }
 
+        update();
         $scope.removeFromFavs = function (index) {
+            $http.delete(localFavPokemonsURL + index)
+                .then(function () {
+                    update()
+                });
         };
-    },
-    bindings{
     }
-)
+}
+
+);
