@@ -9,27 +9,38 @@
         <ul ng-repeat="type in types">
             <li class="{{type}}">{{type}}</li>
         </ul>
-        <h3 class="name">Abilities:</h3>
-        <ul ng-repeat="ability in abilities">
-            <li>{{ability.name}}</li>
-            <ul>
-                <li>Effects: </li>
-                <ul ng-repeat="effect in ability.effects">
-                    <li> {{effect}}</li>
+        <label>
+            Abilities: <input type="checkbox" ng-model="checked" ng-init="checked=true" />
+
+        </label>
+        <span ng-if="checked">
+            <ul ng-repeat="ability in abilities">
+                <li>{{ability.name}}</li>
+                <ul>
+                    <li>Effects: </li>
+                    <ul ng-repeat="effect in ability.effects">
+                        <li> {{effect}}</li>
+                    </ul>
                 </ul>
             </ul>
-        </ul>
-        <h3 class="name">Moves:</h3>
-        <ul ng-repeat="move in moves">
-            <li>{{move.name}}</li>
-            <ul>
-                <li>Accuracy: {{move.accuracy}}</li>
-                <li>Damage class: {{move.damageClass}}</li>
-                <li>Effects:</li>
-                <ul ng-repeat="effect in move.effects">
-                    <li> {{effect}}</li>
+        </span>
+        <br /><br />
+        <label>
+            Moves : <input type="checkbox" ng-model="checkedMoves" ng-init="checkedMoves=true" />
+        </label>
+        <span ng-if="checkedMoves">
+            <ul ng-repeat="move in moves">
+                <li>{{move.name}}</li>
+                <ul>
+                    <li>Accuracy: {{move.accuracy}}</li>
+                    <li>Damage class: {{move.damageClass}}</li>
+                    <li>Effects:</li>
+                    <ul ng-repeat="effect in move.effects">
+                        <li> {{effect}}</li>
+                    </ul>
                 </ul>
             </ul>
-        </ul>
+        </span>
+        
     </div>
 </div>
