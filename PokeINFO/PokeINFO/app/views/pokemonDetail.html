@@ -1,18 +1,17 @@
 ﻿<div ng-controller="pokemonDetailController">
     <div class="container">
-        <h4 class="name">{{pokemonName | uppercase }}</h4>
+        <h1 class="name">{{pokemonName | uppercase }}</h1>
         <img class="image" src="{{imageUrl}}" />
-        <h3 class="name">Weight: {{weight    }}</h3>
-        <h3 class="name">Height: {{height    }}</h3>
+        <h4 class="name">Weight: {{weight    }}</h4>
+        <h4 class="name">Height: {{height    }}</h4>
 
-        <h3 class="name">Types:</h3>
+        <h4 class="name">Types:</h4>
         <ul ng-repeat="type in types">
-            <li class="{{type}}">{{type}}</li>
+            <li class="{{type}} pokemontypelist">{{type}}</li>
         </ul>
-        <label>
-            Abilities: <input type="checkbox" ng-model="checked" ng-init="checked=true" />
-
-        </label>
+        <h4>
+            Abilities: <input type="checkbox" ng-model="checked" ng-init="checked=false" />
+        </h4>
         <span ng-if="checked">
             <ul ng-repeat="ability in abilities">
                 <li>{{ability.name}}</li>
@@ -25,9 +24,9 @@
             </ul>
         </span>
         <br /><br />
-        <label>
-            Moves : <input type="checkbox" ng-model="checkedMoves" ng-init="checkedMoves=true" />
-        </label>
+        <h4>
+            Moves : <input type="checkbox" ng-model="checkedMoves" ng-init="checkedMoves=false" />
+        </h4>
         <span ng-if="checkedMoves">
             <ul ng-repeat="move in moves">
                 <li>{{move.name}}</li>
@@ -41,6 +40,5 @@
                 </ul>
             </ul>
         </span>
-        
     </div>
 </div>

@@ -4,8 +4,7 @@
                ng-model-options="{ debounce: 800}"
                placeholder="Enter pokemon name"
                ng-model="searchInput"
-               ng-change="updateCurrentHintList(searchInput)"
-        />
+               ng-change="updateCurrentHintList(searchInput)" />
         <button ng-click="searchForPokemon()">Search</button>
         <!-- TEST -->
         <div class="pokemon-container-dropdown" ng-hide="!searchInput || hideHints">
@@ -17,20 +16,19 @@
         </div>
         <!---->
     </div>
-    <div >
+    <div>
         <div ng-repeat="pokemon in listOfPokemonObjects" class="pokeinfo">
-            <a ng-href="/pokemonDetail/{{pokemon.index}}" >
+            <a ng-href="/pokemonDetail/{{pokemon.index}}">
                 <div>
-                   
                     <h4 class="name">{{pokemon.name | uppercase }}</h4>
-                    <h4 class="index" id="indeks">{{pokemon.index}}</h4>
-                    <ul ng-repeat="pokemonType in pokemon.types">
-                        <li class="{{pokemonType.name}} pokemontypelist">{{pokemonType.name | uppercase}}</li>
-                    </ul>
                     <img class="image" src="{{pokemon.image}}" />
+                    <ul ng-repeat="pokemonType in pokemon.types">
+                        <li class="{{pokemonType.name}} pokemontypelist">
+                            {{pokemonType.name | uppercase}}
+                        </li>
+                    </ul>
                 </div>
             </a>
         </div>
     </div>
-    
 </div>
