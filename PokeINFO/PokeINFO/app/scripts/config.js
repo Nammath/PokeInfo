@@ -13,6 +13,10 @@
                 controller: 'pokemonDetailController'
 
             })
+            .when('/pokemonFavorite', {
+                templateUrl: '/app/views/pokemonFavView.html',
+                controller: 'pokeFavController'
+            })
 
         $locationProvider.html5Mode({
             enabled: true,
