@@ -8,7 +8,7 @@
             <div>
                 <span>
                     <h4 class="name">{{pokemon.name | uppercase }}</h4>
-                    <button ng-click="removeFromFavs(pokemon.index)">Delete</button>
+                    <button ng-click="removeFromFavs(pokemon.id)">Delete</button>
                 </span>
             </div>
             <a ng-href="/pokemonDetail/{{pokemon.index}}">
