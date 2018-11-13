@@ -1,6 +1,6 @@
 ﻿<div ng-controller="pokemonDetailController">
     <div class="container">
-        <h4 class="name">{{pokemonName    }}</h4>
+        <h4 class="name">{{pokemonName | uppercase }}</h4>
         <img class="image" src="{{imageUrl}}" />
         <h3 class="name">Weight: {{weight    }}</h3>
         <h3 class="name">Height: {{height    }}</h3>
