@@ -9,6 +9,19 @@
           "name": "water"
         }
       ]
+    },
+    {
+      "name": "kabuto",
+      "id": 140,
+      "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/140.png",
+      "types": [
+        {
+          "name": "water"
+        },
+        {
+          "name": "rock"
+        }
+      ]
     }
   ]
 }

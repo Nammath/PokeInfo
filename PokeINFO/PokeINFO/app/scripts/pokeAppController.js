@@ -59,6 +59,7 @@ app.component('pokeSearch', {
         };
 
         $scope.searchForPokemon = function () {
+            $scope.hideHints = true;
             $scope.listOfPokemonObjects = [];
             var listOfPokemonsNames = $scope.listOfPokemons.results
                 .map(function (value) {

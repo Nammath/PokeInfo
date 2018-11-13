@@ -1,5 +1,5 @@
 ﻿<a ng-href="/pokemonFavorite" class="acontainer">
-    Lista
+    List of favorite pokemons
 </a>
 
 <table style="height:100%;width: 100%;margin: 10% 0%;padding: 0;border: 0;">
@@ -34,7 +34,7 @@
     </div>
     <div>
         <div ng-repeat="pokemon in listOfPokemonObjects" class="pokeinfo">
-            <button ng-click="addToFav(pokemon)">Add to favourites</button>
+            <button ng-click="addToFav(pokemon)" class="searchbutton">Add to favourites</button>
             <a ng-href="/pokemonDetail/{{pokemon.id}}">
                 <div>
                     <h4 class="name">{{pokemon.name | uppercase }}</h4>
