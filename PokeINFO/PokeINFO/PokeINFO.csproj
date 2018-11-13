@@ -69,6 +69,7 @@
     <Content Include="app\scripts\config.js" />
     <Content Include="app\scripts\pokeDetailController.js" />
     <Content Include="app\styles\divStyle.css" />
+    <Content Include="app\styles\pokemonDetailStyles.css" />
     <Content Include="app\styles\style.css" />
     <Content Include="app\views\pokemonDetail.html" />
     <Content Include="app\views\start.html" />

@@ -1,5 +1,5 @@
 ﻿body {
-    background-color: lightblue;
+    background-color: #c0c3c6;
 }
 
 h1 {
@@ -10,11 +10,23 @@ h1 {
 
 img {
     pointer-events: none;
+    
+}
+img.image{
+    margin-left:90%;
 }
 
 div.container {
+    margin-left:40%;
 }
-
+div.pokemonwrapper {
+    height: 100%;
+    width: 100%;
+    margin: 10% 0% 0% 0%;
+}
+h4.name{
+    margin:10px;
+}
 li.pokemontypelist {
     text-decoration: none;
     pointer-events: none;
@@ -102,4 +114,29 @@ li.dark {
 
 li.fairy {
     background-color: #ffc4e1;
+}
+
+input.pokeinput {
+    background-color: #c0c3c6;
+    border-bottom-color: red;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+}
+
+button.searchbutton {
+    background-color: #d80202;
+    border-radius: 10px;
+    border-color: #bc0909;
+    border-width:2px;
+    padding: 5px 30px;
+}
+
+button.searchbutton:hover{
+    background-color:#b20000;
+}
+
+button.searchbutton:active{
+    position:relative;
+    top: 1px;
 }

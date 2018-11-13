@@ -1,7 +1,11 @@
-﻿<div ng-controller="pokemonDetailController">
-    <div class="container">
-        <h1 class="name">{{pokemonName | uppercase }}</h1>
-        <img class="image" src="{{imageUrl}}" />
+﻿<div ng-controller="pokemonDetailController"  class="pokedeatildiv">
+    <div>
+        <div>
+            <h1 class="name" style="float:left; margin:10px">{{pokemonName | uppercase }}</h1>
+            <img src="{{imageUrl}}" style="float:right; margin:10px" />
+        </div>
+        <br /><br /><br />
+        
         <h4 class="name">Weight: {{weight    }}</h4>
         <h4 class="name">Height: {{height    }}</h4>
 
@@ -9,6 +13,7 @@
         <ul ng-repeat="type in types">
             <li class="{{type}} pokemontypelist">{{type}}</li>
         </ul>
+
         <h4>
             Abilities: <input type="checkbox" ng-model="checked" ng-init="checked=false" />
         </h4>
@@ -24,6 +29,7 @@
             </ul>
         </span>
         <br /><br />
+
         <h4>
             Moves : <input type="checkbox" ng-model="checkedMoves" ng-init="checkedMoves=false" />
         </h4>
