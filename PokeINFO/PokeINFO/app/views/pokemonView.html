@@ -27,6 +27,7 @@
     </div>
     <div>
         <div ng-repeat="pokemon in listOfPokemonObjects" class="pokeinfo">
+            <button ng-click="addToFav(pokemon.index)">Add to favourites</button>
             <a ng-href="/pokemonDetail/{{pokemon.index}}">
                 <div> 
                     <h4 class="name">{{pokemon.name | uppercase }}</h4>
