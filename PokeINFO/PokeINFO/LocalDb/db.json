@@ -1,9 +1,9 @@
 {
   "pokemons": [
     {
-      "name": "wartortle",
-      "id": 8,
-      "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/8.png",
+      "name": "seadra",
+      "id": 117,
+      "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/117.png",
       "types": [
         {
           "name": "water"
@@ -11,12 +11,28 @@
       ]
     },
     {
-      "name": "seadra",
-      "id": 117,
-      "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/117.png",
+      "name": "charizard",
+      "id": 6,
+      "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/6.png",
       "types": [
         {
-          "name": "water"
+          "name": "flying"
+        },
+        {
+          "name": "fire"
+        }
+      ]
+    },
+    {
+      "name": "moltres",
+      "id": 146,
+      "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/146.png",
+      "types": [
+        {
+          "name": "flying"
+        },
+        {
+          "name": "fire"
         }
       ]
     }
